@@ -1,0 +1,71 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: rootpassword
+          MYSQL_DATABASE: jiancha_car_rental
+          MYSQL_USER: jiancha
+          MYSQL_PASSWORD: jianchapassword
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: implementations/backend/package-lock.json
+
+      - name: Install dependencies
+        run: |
+          cd implementations/backend
+          npm ci
+
+      - name: Run database schema
+        run: |
+          mysql -h 127.0.0.1 -u jiancha -pjianchapassword jiancha_car_rental < implementations/backend/src/database/schema.sql
+
+      - name: Run linter
+        run: |
+          cd implementations/backend
+          npm run lint || true
+
+      - name: Run tests with coverage
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_USER: jiancha
+          DB_PASSWORD: jianchapassword
+          DB_NAME: jiancha_car_rental
+          JWT_SECRET: jiancha_secret_key_2026
+          PORT: 8080
+        run: |
+          cd implementations/backend
+          npm test
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: implementations/backend/coverage/
