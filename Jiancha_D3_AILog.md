@@ -46,3 +46,24 @@
 - **Accepted:** Full workflow file, eslint config
 - **Rejected:** None
 - **Verification:** Pushed to dev branch, checked GitHub Actions tab for green pipeline
+
+## Entry 7 — Frontend Setup with React + Vite
+- **Date:** 2026-02-28
+- **Tool:** Claude AI
+- **Prompt used:** "Setup React Vite frontend with react-router-dom and axios for car rental system"
+- **Accepted:** Folder structure, page components, routing, api service
+- **Rejected:** None
+- **Verification:** Ran `npm run dev`, opened http://localhost:5173, confirmed all pages render correctly
+
+## Entry 8 — Frontend Redesign with shadcn/ui (Travel Naja theme)
+- **Tool:** GitHub Copilot
+- **Prompt used:** "Redesign React app to look like unified travel platform Travel Naja using shadcn/ui. Home page shows 3 service cards: Flights, Car Rental, Hotels. Flights and Hotels show Coming Soon badge. Keep all existing logic intact."
+- **Accepted:** shadcn/ui component integration, Travel Naja branding, service cards layout, dark theme
+- **Rejected:** Initial shadcn setup that used incompatible Tailwind v3 syntax with Tailwind v4
+- **Verification:** 
+  - Fixed CSS by replacing `@tailwind base/components/utilities` with `@import tailwindcss`
+  - Installed missing `tailwindcss-animate` package
+  - Ran `npm run dev` confirmed no errors
+  - Manually tested all pages: Home, Cars, Login, Register, Bookings
+  - Confirmed Flights and Hotels cards show "Coming Soon" and are disabled
+  - Confirmed Car Rental card links to /cars and booking still works
