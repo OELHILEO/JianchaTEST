@@ -39,3 +39,10 @@
 - **Accepted:** All test files, jest config
 - **Rejected:** None
 - **Verification:** npm test — 15/15 passed, 87.59% statement coverage
+
+## Entry 6 — GitHub Actions CI Pipeline
+- **Date:** 2026-02-28
+- **Prompt used:** "Create GitHub Actions CI pipeline with MySQL service container, ESLint, and Jest coverage"
+- **Accepted:** Full workflow file, eslint config
+- **Rejected:** None
+- **Verification:** Pushed to dev branch, checked GitHub Actions tab for green pipeline
