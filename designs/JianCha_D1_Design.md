@@ -140,5 +140,4 @@ Use Case Diagram describes the main interactions between users and the Travel Na
    
    This level of decomposition provides a clearer view of how the system manages user data, reservation information, and reporting functions while integrating with external travel service providers.  
    
-
 ![Data Flow Diagram Level 1](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/23776b4346442564617aafc9a6ff82f706ced459/images/Diagrams/JianCha-DFD-Level1.png)
