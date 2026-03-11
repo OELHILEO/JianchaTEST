@@ -8,8 +8,8 @@
 
    ![Context Diagram](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/a9c83d4dcd2184c5404896d35fe4bd4c2aab6b13/images/Diagrams/Context_diagram.png)
    
-   **1\. Requirements Alignment:** The diagram addresses key stakeholders from the requirements and shows who needs to do what:  
-      - **Guest:** View promotions and browse public content, Register account  
+   1. **Requirements Alignment:** The diagram addresses key stakeholders from the requirements and shows who needs to do what:  
+      - **Guest:** View promotions and public content, Register account  
       - **Membership User:** Create a reservation, View promotions and browse public content, Log in, and Update proifle
       - **Back-end Staff:** Manage reservation, Generate reports  
       - **Flight Agency:** Provides flight data and handles ticket reservations  
@@ -17,7 +17,7 @@
       - **Hotel Agency:** Provides room availability and reservations  
       - **Bank Gateway:** Processes credit card transactions
         
-   **2\. Design Decision:**  
+   2. **Design Decision:**  
       - **Actor Separation:** Actors are separated by roles in which Guest represents unauthenticated users who can only browse, while Membership User represents authenticated users who can perform bookings and update profile, and Back-end Staff can manage reservations, reflecting different access levels in the system.  
       - **External Integration:** External systems including Flight Agency, Car Agency, Hotel Agency, and Bank Gateway are included to support the core requirement of travel booking. These systems are owned and operated by third parties, so they sit outside the system boundary.
       - **System Boundary:** The single "Travel Naja" node represents the entire system as a black box, separating what the system is responsible for from its external dependencies, keeping the diagram at the appropriate level of abstraction for C4 Level 1\.
@@ -28,13 +28,13 @@
 
    ![Container Diagram](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/a9c83d4dcd2184c5404896d35fe4bd4c2aab6b13/images/Diagrams/Container_diagram.png)
 
-   **1\. Requirements Alignment:** The diagram maps each container to the system's core responsibilities:  
+   1. **Requirements Alignment:**  The diagram maps each container to the system's core responsibilities:  
       - **Web Application** (React, Vite.js, Tailwind — Hosted by Vercel): Serves as the single interface for all actors in which Guest browses and registers, Membership user makes and manages reservations, and Back-end Staff generates reports
       - **API Gateway** (Express — Hosted by Render): Handles all incoming API calls from the Web Application, providing authentication, rate limiting, and request routing as a single entry point for all backend calls
       - **Core Booking & Guide Management Service** (Node.js, Express — Hosted by Render): Contains all business logic including booking orchestration and reporting, and communicates with all external agencies directly
       - **Main Database** (MySQL — Hosted by Clever Cloud): Persists all core data including users, bookings, and capacity.
  
-   **2\. Design Decision:** 
+   2. **Design Decision:**  
       - **Cloud Hosting Strategy:** Each container is hosted on a platform suited to its role. The Web Application on Vercel for optimized frontend delivery, the API Gateway and Core Service on Render for scalable backend hosting, and the Main Database on Clever Cloud for managed database services. This separates deployment concerns across specialized platforms.
       - **API Gateway Pattern:** All traffic from the Web Application passes through the API Gateway before reaching backend services, centralizing authentication and rate limiting without duplicating these concerns across services.
       - **Single Backend Service:** All business logic is consolidated into one Core Booking & Guide Management Service rather than splitting into microservices, which is appropriate for the current scale and reduces operational complexity.
@@ -47,14 +47,14 @@
 
 ![Component Diagram](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/a9c83d4dcd2184c5404896d35fe4bd4c2aab6b13/images/Diagrams/Component_diagram.png)
 
-   **1\. Requirements Alignment:** Each component maps directly to a core system responsibility:
+   1. **Requirements Alignment:** Each component maps directly to a core system responsibility:
       - **API Routes & Controllers** (Express, NestJS): Receives all incoming requests from API Gateway and routes them to the appropriate internal components, acting as the internal entry point.
       - **Payment Service**: Handles the requirement for secure payment processing by managing credit card transactions and communicating with Bank Gateway via HTTPS.
       - **Booking Orchestrator**: Fulfills the core booking requirement by coordinating flight, car, and hotel bookings, delegating external agency calls to External API Clients and persisting data to Main Database.
       - **Reporting Service**: Fulfills the Back-end Staff requirement to generate reports by querying data directly from Main Database in a read-only manner.
       - **External API Clients** (Axios): Abstracts all outbound HTTP calls to Car Agency, Hotel Agency, and Flight Agency, keeping integration logic separated from business logic in Booking Orchestrator.
 
-   **2\. Design Decision:** 
+   2. **Design Decision:**  
       - **Separation of Concerns:** Each component has a single, well-defined responsibility. Booking Orchestrator focuses purely on coordination logic and delegates payment to Payment Service and external calls to External API Clients, avoiding mixing concerns in one place.
       - **External API Abstraction:** External Agency calls are isolated in the External API Clients component rather than being called directly from Booking Orchestrator. This makes it easier to swap or mock external integrations without affecting core business logic.
       - **Read/Write Separation:** Booking Orchestrator and Payment Service use Read/Write to Main Database for transactional operations, while Reporting Service uses Query data to reflect that it only reads data for analytics, making the intent of each access clear.
