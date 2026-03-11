@@ -61,6 +61,8 @@
 
 ## 
 
+## 
+
 ## Use Case Diagram
 
 Use Case Diagram describes the main interactions between users and the Travel Naja System. It shows what functions each actor can perform and how they interact with the system.  
@@ -78,7 +80,7 @@ Use Case Diagram describes the main interactions between users and the Travel Na
 
 * **Account Registration and Authentication:** The system requires users to register and create a profile before they can make reservations. Related use cases:  
   * **Register** – allows guests to create an account and become a member.  
-  * **Authenticate user account** – verifies user identity when accessing the system.  
+  * **Authenticate user account** – verifies new users (guests) identity when accessing the system.  
   * **Login** – allows registered users (membership users) to access member features.  
   * **Update profile** – allows membership users to modify personal information.  
   * **Set preferences** – allows membership users to define travel preferences.  
@@ -90,7 +92,8 @@ Use Case Diagram describes the main interactions between users and the Travel Na
   * **Browse available cars** – allows users to search for rental cars.  
   * **Select trip details** – users specify destination, date, and other criteria.  
   * **Display unified results** – the system shows available results from different services.  
-  * **Display available car and price** – shows detailed car information and rental price.
+  * **Provide cars data** – allows the car agency to provide a list of available cars.
+  * **Display available car and price** – shows detailed car information and rental price retrived from the car agency.
 
     These use cases align with the requirement, which states that the platform must communicate with external agencies such as car rental agencies. The requirement also requires a unified search interface for travel services.
 
@@ -102,10 +105,15 @@ Use Case Diagram describes the main interactions between users and the Travel Na
     These use cases support the requirement which states that the system must support reservation services such as car rental reservations. These also align with the requirement which states that requires integrated booking functionality within the platform.
 
 * **Payment Processing:** The system must process payments through a credit card gateway. Related use cases:  
-  * **Manage payment details** – allows membership users to store and manage credit card information and confirm the payment for a reservation.  
+  * **Manage/Confirm payment** – allows membership users to store and manage credit card information and confirm the payment for a reservation.  
   * **Process payment** – allows the bank gateway to handle and  authorize the payment process.
 
     These use cases directly support the requirement which states that the system must communicate with the bank's credit card gateway to process payments and provide a credit card payment for membership users.
+
+* **Promotion Access:** Users must be able to view promotional information when visiting the platform. Related use cases:  
+  * **View promotions** – allows users to view promotions.
+
+    This aligns with the requirement which states that guest and membership users can view promotions and public content.
 
 * **Reporting and Monitoring:** Back-end staff must be able to analyze system data and generate reports. Related use cases:  
   * **View/track reservation records** – allows the back-end staff to monitor reservation activities.  
@@ -135,7 +143,7 @@ Use Case Diagram describes the main interactions between users and the Travel Na
 
 2. ### Data Flow Diagram Level 1
 
-   The **DFD Level 1 diagram** expands the system into multiple functional processes that represent the main operations of the platform. These processes include **registering accounts, logging in, browsing available cars, managing cars, viewing promotions, managing payment details, updating user profiles, creating reservations, viewing reservation records, and generating reservation reports**.  
+   The **DFD Level 1 diagram** expands the system into multiple functional processes that represent the main operations of the platform. These processes include **registering accounts, logging in, browsing available cars, managing cars, viewing promotions, Manage/Confirm payment, updating user profiles, creating reservations, viewing reservation records, and generating reservation reports**.  
 
    Each process handles specific data inputs from users and interacts with the system database to store or retrieve information. For example, the reservation process collects booking details from membership users and communicates with external agencies to confirm availability, while the payment process interacts with the bank gateway to complete credit card transactions.  
    
