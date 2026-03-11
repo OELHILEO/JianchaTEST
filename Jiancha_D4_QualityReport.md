@@ -1,149 +1,157 @@
-## SonarQube Analysis Page
+# SonarQube Code Quality Analysis
 
-### Screenshot
+## SonarQube Overview
 
-![SonarQube Overview](./images/Overview.png)
+![SonarQube Overview](./images/QualityReport/Overview.png)
 
----
+The SonarQube analysis provides an overview of the overall code quality of the Jiancha Car Rental system. Based on the latest scan, the project **successfully passed the SonarQube Quality Gate**, which indicates that the code meets the predefined quality standards.
 
-## Executive Summary
+The analysis shows that the project currently maintains **high reliability and security**, with no detected bugs or vulnerabilities. The maintainability rating also remains **A**, although SonarQube detected a few minor code smells that could be improved.
 
-The SonarQube analysis provides an overview of the overall quality of the project’s source code. According to the report, the project successfully **passes the Quality Gate**, which means that the code meets the minimum quality requirements defined by SonarQube.
-
-Overall, the system demonstrates **strong reliability, security, and maintainability**, each receiving an **A rating**. This indicates that no major bugs or security vulnerabilities were detected during the analysis. However, the report still highlights several areas that could be improved, particularly related to **code maintainability, security hotspot review, and test coverage**.
-
-Although these issues are not critical, addressing them would help improve the long-term quality and sustainability of the codebase.
+Overall, the results suggest that the project is in **good condition in terms of code quality**, with only small improvements needed to further enhance maintainability.
 
 ---
 
-## Quality Gate Configuration
+# Quality Metrics Summary
 
-![Quality Gate Configuration](./images/QualityGateConfig.png)
+The main quality metrics reported by SonarQube are summarized below.
 
-The project uses the default **Sonar Way Quality Gate**, which follows the *Clean as You Code* methodology. This quality gate defines the conditions that newly added code must satisfy in order to maintain a healthy codebase.
+| Metric | Result |
+|------|------|
+| Quality Gate | Passed |
+| Security Issues | 0 |
+| Reliability Issues | 0 |
+| Maintainability Issues | 3 |
+| Test Coverage | 72.9% |
+| Code Duplication | 0.0% |
+| Security Hotspots | 2 |
 
-The key conditions enforced by this quality gate include:
+### Security
 
-- No new bugs should be introduced
-- No new vulnerabilities should appear
-- All security hotspots must be reviewed
-- Test coverage on new code should remain above 80%
-- Code duplication should remain below 3%
-- Maintainability, reliability, and security ratings should remain at grade **A**
-
-These rules ensure that new changes do not degrade the overall quality of the system and help maintain consistent coding standards throughout the project.
-
----
-
-## Key Metric Analysis
-
-### 1. Reliability & Stability (Rating: A)
-
-**Issues:**  
-The analysis detected **0 bugs** in the current codebase.
-
-**Observation:**  
-This result suggests that the project does not contain known patterns that typically lead to runtime failures or incorrect behavior. As a result, the system receives a **Reliability rating of A**, indicating that the code is currently stable and unlikely to cause unexpected errors during execution.
-
-Maintaining this level of reliability will require consistent code review and testing, especially when new features are introduced.
+The analysis reported **0 security vulnerabilities**, which results in a **Security Rating of A**. This indicates that no known security risks were detected in the current codebase.
 
 ---
 
-### 2. Maintainability (Rating: A)
+### Reliability
 
-**Issues:**  
-SonarQube identified **13 code smells** within the project.
-
-**Technical Debt:**  
-The estimated effort required to resolve these issues is approximately **1 hour and 55 minutes**.
-
-**Observation:**  
-Code smells are not functional errors but rather indicators that some parts of the code could be improved for better readability and maintainability. These issues often involve inefficient coding patterns or unnecessary complexity.
-
-Some examples of the detected problems include:
-
-- duplicated module imports
-- unused variables or unused imports
-- nested conditional expressions that reduce readability
-- unnecessary variable assignments
-- functions with high cognitive complexity
-
-Despite these issues, the project still maintains an **A rating in maintainability**, which indicates that the overall structure of the codebase is still manageable and relatively easy to maintain.
+SonarQube also detected **0 bugs**, giving the project a **Reliability Rating of A**. This suggests that the system does not contain patterns that could lead to runtime failures or incorrect behavior.
 
 ---
 
-### 3. Security Review
+### Maintainability
 
-**Vulnerabilities:**  
-No security vulnerabilities were detected in the project.
+The system currently has **3 maintainability issues**, which are classified as **code smells**. These issues do not affect the functionality of the system but indicate areas where the code structure or style could be improved.
 
-**Security Hotspots:**  
-The analysis identified **13 security hotspots**, with **0% currently reviewed**.
-
-**Observation:**  
-Security hotspots are not automatically classified as vulnerabilities. Instead, they represent areas in the code that may potentially involve sensitive operations and therefore require manual inspection by developers.
-
-For example, one hotspot flagged by SonarQube involves **a potentially hardcoded credential in a test file**. Although this might be acceptable in a controlled testing environment, it is still recommended to review such cases to ensure that sensitive information is not accidentally exposed in production code.
+Despite these minor issues, the project still receives a **Maintainability Rating of A**, meaning the overall codebase remains clean and manageable.
 
 ---
 
-### 4. Test Coverage
+### Test Coverage
 
-**Coverage:**  
-The report shows **0% test coverage**, with **939 lines of code that could potentially be covered by tests**.
+The project currently has **72.9% test coverage**, based on **308 lines of code that are considered for coverage**.
 
-**Observation:**  
-This means that there are currently no automated tests being tracked by SonarQube for this project. While the system may still function correctly, the absence of automated testing increases the risk that future changes could introduce undetected bugs.
+This indicates that a large portion of the system's functionality is covered by automated tests. Having this level of coverage helps ensure that the system behaves correctly and reduces the risk of introducing bugs when modifying the code.
 
-Improving test coverage would significantly increase confidence in the stability of the application and make future refactoring safer.
+However, there is still room for improvement, and increasing test coverage could further strengthen the reliability of the system.
 
 ---
 
-### 5. Code Duplication
+### Code Duplication
 
-**Status:**  
-The analysis shows **0 duplicated blocks**, resulting in **0% code duplication across approximately 3.7k lines of code**.
+The analysis reports **0.0% code duplication across 598 lines of code**, which is a positive indicator of code quality.
 
-**Observation:**  
-This indicates that the project avoids repeating the same logic across multiple files. Low duplication is beneficial because it reduces maintenance effort and minimizes the risk of inconsistent behavior when updates are made.
+Low duplication helps improve maintainability because changes only need to be made in one place rather than multiple duplicated sections of code.
 
 ---
 
-## Issue Overview
-![Analyzed Issues](./images/CodeSmellAnalysis.png)
+### Security Hotspots
+![Security Hotspot Analysis Result](./images/QualityReport/SecurityHotspots.png)
 
-The analysis identified **13 code smell issues** in total. These issues are mostly related to maintainability and coding practices rather than functional errors.
+The SonarQube analysis identified **2 security hotspots** in the project. Security hotspots are not confirmed vulnerabilities, but they highlight parts of the code that may involve **security-sensitive configurations** and therefore require manual review by developers.
 
-Examples of issues reported by SonarQube include:
-
-- duplicated imports in React components
-- nested ternary operations that reduce readability
-- unused variables and imports
-- functions with high cognitive complexity
-- using array indexes as keys in React lists
-
-Although these issues do not affect the correctness of the program, resolving them would help improve code clarity and maintainability.
+Both hotspots detected in this project are categorized as **Low review priority**, meaning they do not immediately indicate a critical security risk but should still be examined to ensure the system is configured securely.
 
 ---
 
-## Discussion
+### Hotspot 1: CORS Configuration
 
-From the analysis results, it can be observed that the project maintains a generally **healthy level of code quality**. The absence of bugs and vulnerabilities suggests that the application logic is implemented correctly and does not currently present significant reliability or security risks.
+**Category:** Insecure Configuration  
+**Location:** `implementations/backend/src/app.js`  
 
-However, the report also highlights several areas that deserve attention. The presence of multiple **code smells** suggests that certain parts of the codebase could benefit from refactoring. While these issues do not directly impact functionality, they may increase maintenance effort as the project grows.
+SonarQube flagged the configuration of **Cross-Origin Resource Sharing (CORS)** in the Express application. The code allows requests from any origin using the following configuration:
 
-Another important observation is the **lack of test coverage**. Without automated tests, it becomes more difficult to ensure that future modifications do not introduce regressions or unexpected side effects. Implementing unit tests and integration tests would significantly strengthen the reliability of the system.
+```javascript
+origin: '*'
+```
+---
 
-Additionally, the **security hotspots identified by SonarQube should be reviewed carefully**. Even though they are not confirmed vulnerabilities, they represent potentially sensitive areas that developers should verify to ensure that best security practices are followed.
+# Issue Analysis
 
-Overall, the analysis suggests that the project is in a good condition, but there are still opportunities for improvement, particularly in **testing practices, code refactoring, and security review processes**.
+![Analyzed Issues](./images/QualityReport/Issues.png)
+
+SonarQube identified **three maintainability issues** within the project. These issues mainly relate to code readability and data structure usage rather than functional errors.
+
+## Issue 1: Using Array Instead of Set for Promo Code Checking
+
+**File:** `bookingController.js`  
+**Severity:** Medium
+
+In this file, the variable `VALID_PROMO_CODES` is implemented as an **Array** and is used to check whether a promo code exists.
+
+SonarQube recommends using a **Set** instead, together with the `.has()` method, for checking membership. This is because Sets are optimized for existence checking, making them more efficient than Arrays when performing repeated lookups.
+
+Although the difference may be small in this project, using the correct data structure improves both performance and code clarity.
 
 ---
 
-## Conclusion
+## Issue 2: Unexpected Negated Condition
 
-The SonarQube analysis provides valuable insight into the quality of the project’s source code. The system successfully passes the Quality Gate and demonstrates strong reliability, security, and maintainability ratings.
+**File:** `staffCarController.js`  
+**Severity:** Low
 
-Although the project currently meets the required quality standards, further improvements can be made by addressing maintainability issues, reviewing security hotspots, and increasing automated test coverage.
+This issue indicates that a **negated logical condition** is used in the code. While this is not incorrect, such expressions can sometimes make the code harder to read.
 
-By gradually resolving these areas, the project will become more robust, maintainable, and easier to evolve in the future.
+Refactoring the condition into a clearer form can make the logic easier to understand for other developers and improve the overall readability of the code.
+
+---
+
+## Issue 3: Using Array Instead of Set for Column Checking
+
+**File:** `db.js`  
+**Severity:** Medium
+
+A similar issue appears in `db.js`, where `columnNames` is stored as an **Array** but is used to check whether a column exists.
+
+SonarQube recommends converting this structure to a **Set** and using `.has()` instead. This approach better reflects the intended purpose of the data structure and allows faster lookup operations.
+
+---
+
+# Discussion
+
+Overall, the SonarQube analysis indicates that the Jiancha Car Rental project maintains **good code quality**. The system successfully passes the Quality Gate and achieves **A ratings for security, reliability, and maintainability**.
+
+One of the positive aspects of the project is that **no bugs or security vulnerabilities were detected**, which suggests that the current implementation follows relatively safe and stable coding practices.
+
+The maintainability issues detected are relatively minor and mainly related to **data structure choice and code readability**. Addressing these code smells would further improve the clarity and efficiency of the code.
+
+The project also shows **72.9% test coverage**, which indicates that automated tests cover a substantial portion of the system. While this level of coverage already provides a reasonable level of confidence in the system, increasing the coverage could help ensure even greater reliability in future development.
+
+Another strong point is the **absence of code duplication**, which helps keep the codebase easier to maintain and reduces the risk of inconsistencies when changes are made.
+
+Overall, the project demonstrates **solid code quality with only minor areas for improvement**, making it easier to maintain and extend in future development.
+
+---
+
+# Conclusion
+
+The SonarQube analysis confirms that the Jiancha Car Rental project meets the required quality standards and successfully **passes the Quality Gate**.
+
+The system currently has:
+
+- **0 bugs**
+- **0 vulnerabilities**
+- **3 maintainability issues**
+- **72.9% test coverage**
+- **0% code duplication**
+
+While the project already demonstrates strong code quality, addressing the identified maintainability issues and continuing to improve test coverage would further enhance the robustness and maintainability of the system in the long term.
