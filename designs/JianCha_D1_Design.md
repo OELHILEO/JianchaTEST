@@ -102,8 +102,7 @@ Use Case Diagram describes the main interactions between users and the Travel Na
     These use cases support the requirement which states that the system must support reservation services such as car rental reservations. These also align with the requirement which states that requires integrated booking functionality within the platform.
 
 * **Payment Processing:** The system must process payments through a credit card gateway. Related use cases:  
-  * **Manage payment details** – allows membership users to store and manage credit card information.  
-  * **Confirm payment** – allows membership users to confirm the payment for a reservation.  
+  * **Manage payment details** – allows membership users to store and manage credit card information and confirm the payment for a reservation.  
   * **Process payment** – allows the bank gateway to handle and  authorize the payment process.
 
     	These use cases directly support the requirement which states that the system must communicate with the bank's credit card gateway to process payments and provide a credit card payment for membership users.
