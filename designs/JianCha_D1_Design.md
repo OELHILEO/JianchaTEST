@@ -6,7 +6,7 @@
 
    The design of this Context Diagram shows the big picture of the Travel Naja System. It shows which actors and external systems interact with the system and how they conceptually relate to it.  
 
-   ![Context Diagram](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/a9c83d4dcd2184c5404896d35fe4bd4c2aab6b13/images/Diagrams/Context_diagram(1).png)
+   ![Context Diagram](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/a9c83d4dcd2184c5404896d35fe4bd4c2aab6b13/images/Diagrams/Context_diagram.png)
 
    1. **Requirements Alignment:** The diagram addresses key stakeholders from the requirements and shows who needs to do what:  
       - **Guest:** View promotions and browse public content, Register account  
@@ -26,7 +26,7 @@
 
    The design of this Container Diagram zooms into the Travel Naja system boundary to show the high-level technology choices and how responsibilities are divided across containers, and how they communicate with each other.  
 
-   ![Container Diagram](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/a9c83d4dcd2184c5404896d35fe4bd4c2aab6b13/images/Diagrams/Container_diagram(1).png)
+   ![Container Diagram](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/a9c83d4dcd2184c5404896d35fe4bd4c2aab6b13/images/Diagrams/Container_diagram.png)
 
    1. **Requirements Alignment:** The diagram maps each container to the system's core responsibilities:  
       - **Web Application** (React, Vite.js, Tailwind — Hosted by Vercel): Serves as the single interface for all actors in which Guest browses and registers, Membership user makes and manages reservations, and Back-end Staff generates reports
@@ -67,7 +67,7 @@
 
 Use Case Diagram describes the main interactions between users and the Travel Naja System. It shows what functions each actor can perform and how they interact with the system.  
 
-![Use Case Diagram](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/a9c83d4dcd2184c5404896d35fe4bd4c2aab6b13/images/Diagrams/JianCha-UseCase.png)
+![Use Case Diagram](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/a9c83d4dcd2184c5404896d35fe4bd4c2aab6b13/images/Diagrams/JianCha-Use-Case.png)
 
 **1\. Requirements Alignment:**
 
@@ -139,7 +139,7 @@ Use Case Diagram describes the main interactions between users and the Travel Na
 
    Guests can view promotions and register for an account, while membership users can make reservations and manage their bookings. Back-end staff interact with the system to monitor reservations and generate reports for business analysis. The Travel Naja system also communicates with external agencies to retrieve travel availability data and with the bank gateway to process credit card payments.  
    
-![Data Flow Diagram Level 0](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/a9c83d4dcd2184c5404896d35fe4bd4c2aab6b13/images/Diagrams/JianCha-DFD-Level-0.png)
+![Data Flow Diagram Level 0](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/a9c83d4dcd2184c5404896d35fe4bd4c2aab6b13/images/Diagrams/JianCha-DFD-Level0.png)
 
 2. ### Data Flow Diagram Level 1
 
@@ -150,4 +150,4 @@ Use Case Diagram describes the main interactions between users and the Travel Na
    This level of decomposition provides a clearer view of how the system manages user data, reservation information, and reporting functions while integrating with external travel service providers.  
    
 
-![Data Flow Diagram Level 1](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/a9c83d4dcd2184c5404896d35fe4bd4c2aab6b13/images/Diagrams/JianCha-DFD-Level-1.png)
+![Data Flow Diagram Level 1](https://github.com/ICT-Mahidol/2025-ITCS383-JianCha/blob/a9c83d4dcd2184c5404896d35fe4bd4c2aab6b13/images/Diagrams/JianCha-DFD-Level1.png)
