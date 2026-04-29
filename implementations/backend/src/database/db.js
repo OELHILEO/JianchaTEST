@@ -128,6 +128,15 @@ const runMigrations = async () => {
       ];
       const insertQuery = 'INSERT INTO cars (brand, model, type, license_plate, price_per_day, location, discount_percent, is_promotion) VALUES ?';
       await connection.query(insertQuery, [sampleCars]);
+    } else {
+      // If table is NOT empty, check if we have any promotions
+      const [promos] = await connection.query('SELECT COUNT(*) as count FROM cars WHERE is_promotion = TRUE');
+      if (promos[0].count === 0) {
+        console.log('No promotions found in existing database. Adding promotions to sample cars...');
+        // Set some models as promotions automatically
+        const promoModels = ['Camry', 'Altima', '320i', 'CR-V', 'X5', 'Fortuner', 'Alphard', 'Carnival', 'V-Class', 'Corolla', 'Rogue'];
+        await connection.query('UPDATE cars SET is_promotion = TRUE, discount_percent = 15 WHERE model IN (?)', [promoModels]);
+      }
     }
 
     // Migration logic for existing tables (adding columns if they were created by old schema)
