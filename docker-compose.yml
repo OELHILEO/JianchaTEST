@@ -10,7 +10,7 @@ services:
       MYSQL_USER: jiancha
       MYSQL_PASSWORD: jianchapassword
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./implementations/backend/src/database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
